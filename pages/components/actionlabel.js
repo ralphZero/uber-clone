@@ -3,7 +3,7 @@ import tw from 'tailwind-styled-components';
 
 const ActionLabel = () => {
     return (
-        <Wrapper>
+        <Wrapper href='/trip'>
             <ActionButton></ActionButton>
             <Labels>
                 <LabelTitle>Where are you going?</LabelTitle>
@@ -16,7 +16,7 @@ export default ActionLabel;
 
 
 
-const Wrapper = tw.div`
+const Wrapper = tw.a`
   flex justify-start items-center gap-5 bg-black w-full rounded-lg p-4 mb-3
 `
 

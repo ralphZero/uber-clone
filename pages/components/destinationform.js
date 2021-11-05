@@ -22,7 +22,7 @@ const DestinationForm = () => {
 export default DestinationForm;
 
 const Container = tw.div`
-    flex py-2 px-3 w-full
+    flex py-4 px-3 w-full bg-white rounded-lg
 `
 
 const ImageColumn = tw.div`
