@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import tw from 'tailwind-styled-components';
 import DestinationForm from './components/destinationform';
 import Head from 'next/head';
@@ -6,10 +6,30 @@ import LocationSuggestion from './components/LocationSuggestion';
 import {  useRouter } from 'next/router'
 
 const Trip = () => {
+
+    const [pickupLat, setPickupLat] = useState(null);
+    const [pickupLong, setPickupLong] = useState(null);
+    const [dropoffLat, setDropoffLat] = useState(null);
+    const [dropoffLong, setDropoffLong] = useState(null);
+
     const router = useRouter()
 
     const onBackPressed = (e) => {
         router.back();
+    }
+
+    const goToRide = (e) => {
+        router.push({
+            pathname: '/ride',
+            query: {
+                coordinates: [
+                    pickupLat,
+                    pickupLong,
+                    dropoffLat,
+                    dropoffLong,
+                ].join(',')
+            }
+        });
     }
 
     return (
@@ -26,14 +46,14 @@ const Trip = () => {
                         <Title>Trip</Title>
                         <WhiteSpace></WhiteSpace>
                     </Navbar>
-                    <DestinationForm />
+                    <DestinationForm pickupLong={setPickupLong} pickupLat={setPickupLat} dropoffLong={setDropoffLong} dropoffLat={setDropoffLat}/>
                 </TopContainer>
                 <MainContainer>
                     <LocationSuggestion />
                 </MainContainer>
             </Wrapper>
             <ButtonContainer>
-                <ConfirmButton>Confirm trip</ConfirmButton>
+                <ConfirmButton onClick={goToRide}>Confirm trip</ConfirmButton>
             </ButtonContainer>
             
         </>

@@ -4,7 +4,6 @@ import mapboxgl from 'mapbox-gl';
 import Mapbox from './components/map';
 import Head from 'next/head'
 import Navbar from './components/navbar';
-import DestinationForm from './components/destinationform';
 import ActionLabel from './components/actionlabel';
 import LocationSuggestion from './components/LocationSuggestion';
 
@@ -25,20 +24,19 @@ export default function Home() {
   return (
     <>
       <Head>
-      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"/>
+        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"/>
       </Head>
       <Wrapper>
         <Navbar />
           <Mapbox />
           <ActionBox>
-            <GradienBox>
+            <GradientBox>
               <Container>
               <Greeting>Howdy! Ralph</Greeting>
               <ActionLabel />
               <LocationSuggestion />
             </Container>
-            </GradienBox>
-            
+            </GradientBox>
           </ActionBox>
       </Wrapper>
     </>
@@ -62,6 +60,6 @@ const Greeting = tw.div`
   font-semibold text-xl text-black pb-3 pt-5
 `
 
-const GradienBox = tw.div`
+const GradientBox = tw.div`
   p-px rounded-lg bg-gradient-to-b from-gray-300 via-gray-300
 `
