@@ -62,9 +62,15 @@ const Ride = () => {
         router.back();
     }
 
+    const [currentRide, setCurrentRide] = useState({ index: 0, title: 'UberX'});
+
     const list = carList.map((car, index) => {
+        let style = currentRide.index == index ? {borderColor: '#000000'} : {borderColor: '#FFFFFF'}
+        let onSelect = () => {
+            setCurrentRide({ index, title: car.service });
+        }
         return (
-            <Card key={index}>
+            <Card style={style} key={index} onClick={onSelect}>
                 <CardContent>
                     <Image src={car.imgUrl}></Image>
                     <Title>{car.service}</Title>
@@ -90,7 +96,7 @@ const Ride = () => {
                             { list }
                         </Container>
                         <ButtonContainer>
-                            <ConfirmButton>Confirm ride</ConfirmButton>
+                            <ConfirmButton>Confirm { currentRide.title }</ConfirmButton>
                         </ButtonContainer>
                     </GradientBox>
                 </ActionBox>
@@ -127,7 +133,7 @@ const Container = tw.div`
 `
 
 const Card = tw.div`
-    h-56 w-44 bg-white rounded-lg mx-2 inline-block shadow-lg
+    h-56 w-44 bg-white rounded-lg mx-2 inline-block shadow-lg border-2 border-white cursor-pointer
 `
 const CardContent = tw.div`
     flex flex-col justify-between items-center h-full p-3
