@@ -8,7 +8,7 @@ const DestinationForm = ({ pickupLat, pickupLong, dropoffLat, dropoffLong }) => 
         // const pickupForm = document.querySelector('#pickup');
         autocomplete(document.getElementById("pickup"));
         autocomplete(document.getElementById("dropoff"), 'dropoff');
-    }, [autocomplete]);
+    }, []);
 
     const token = 'pk.eyJ1IjoicmFscGgtcGxhY2lkZSIsImEiOiJja3ZsbzdydWs2ZnMzMzFxMXR1MDB2Zjl4In0.3INZo_v4GhtfxqjGbAMOEg';
 
