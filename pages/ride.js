@@ -5,17 +5,25 @@ import mapboxgl from 'mapbox-gl';
 import Mapbox from './components/map';
 import { useRouter } from 'next/router';
 import { carList } from '../assets/carList';
+import axios from 'axios';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicmFscGgtcGxhY2lkZSIsImEiOiJja3ZsbzdydWs2ZnMzMzFxMXR1MDB2Zjl4In0.3INZo_v4GhtfxqjGbAMOEg';
 
 const Ride = () => {
     const router = useRouter();
+    const [rideDuration, setRideDuration] = useState(0);
 
     useEffect(() => {
 
         //console.log(router.query.coordinates);
         const coordinates = router.query.coordinates.toString();
         const locationArray = coordinates.split(',');
+        const token = mapboxgl.accessToken;
+        const coord = `${locationArray[1]},${locationArray[0]};${locationArray[3]},${locationArray[2]}`;
+
+        axios.get('https://api.mapbox.com/directions/v5/mapbox/driving/'+coord+'?access_token='+token).then((response) => {
+            setRideDuration(response.data.routes[0].duration / 100);
+        });
 
         // if (map.current) return; // initialize map only once
         const map = new mapboxgl.Map({
@@ -60,7 +68,7 @@ const Ride = () => {
                 <CardContent>
                     <Image src={car.imgUrl}></Image>
                     <Title>{car.service}</Title>
-                    <Price>$24.95</Price>
+                    <Price>{'$'+ (rideDuration * car.multiplier).toFixed(2)}</Price>
                 </CardContent>
             </Card>
         )

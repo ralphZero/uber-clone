@@ -1,6 +1,6 @@
 import React from 'react';
 import tw from 'tailwind-styled-components';
-import logoImage from '../../public/assets/uber.svg';
+import logoImage from '../../assets/uber.svg';
 
 const Navbar = () => {
     return (
