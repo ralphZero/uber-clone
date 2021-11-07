@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import tw from 'tailwind-styled-components';
 import Head from 'next/head';
 import mapboxgl from 'mapbox-gl';
-import Mapbox from './components/map';
+import Mapbox from '../components/map';
 import { useRouter } from 'next/router';
 import { carList } from '../assets/carList';
 import axios from 'axios';

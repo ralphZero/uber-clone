@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import tw from 'tailwind-styled-components';
-import DestinationForm from './components/destinationform';
+import DestinationForm from '../components/destinationform';
 import Head from 'next/head';
-import LocationSuggestion from './components/LocationSuggestion';
+import LocationSuggestion from '../components/LocationSuggestion';
 import {  useRouter } from 'next/router'
 
 const Trip = () => {
