@@ -27,7 +27,7 @@ export default function Home() {
         })
       } else {
         setUser({ name: '', photoUrl: '' });
-        router.push('/login');
+        router.push('/login'); // here
       }
     });
   }, [])
