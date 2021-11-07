@@ -62,9 +62,9 @@ const Ride = () => {
         router.back();
     }
 
-    const list = carList.map((car) => {
+    const list = carList.map((car, index) => {
         return (
-            <Card>
+            <Card key={index}>
                 <CardContent>
                     <Image src={car.imgUrl}></Image>
                     <Title>{car.service}</Title>
