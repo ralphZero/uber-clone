@@ -7,7 +7,7 @@ import Navbar from '../components/navbar';
 import ActionLabel from '../components/actionlabel';
 import LocationSuggestion from '../components/LocationSuggestion';
 
-import { auth } from './firebase';
+import { auth } from '../firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useRouter } from 'next/router';
 
