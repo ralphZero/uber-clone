@@ -8,7 +8,7 @@ const DestinationForm = ({ pickupLat, pickupLong, dropoffLat, dropoffLong }) => 
         // const pickupForm = document.querySelector('#pickup');
         autocomplete(document.getElementById("pickup"));
         autocomplete(document.getElementById("dropoff"), 'dropoff');
-    }, []);
+    }, [autocomplete]);
 
     const token = 'pk.eyJ1IjoicmFscGgtcGxhY2lkZSIsImEiOiJja3ZsbzdydWs2ZnMzMzFxMXR1MDB2Zjl4In0.3INZo_v4GhtfxqjGbAMOEg';
 
@@ -123,9 +123,9 @@ const DestinationForm = ({ pickupLat, pickupLong, dropoffLat, dropoffLong }) => 
     return (
         <Container>
             <ImageColumn>
-                <Image src='https://img.icons8.com/windows/50/000000/square-full.png'></Image>
-                <Line src='https://img.icons8.com/ios/50/9CA3AF/vertical-line.png'></Line>
-                <Image src='https://img.icons8.com/ios-filled/50/9CA3AF/filled-circle.png'></Image>
+                <Image src='https://img.icons8.com/windows/50/000000/square-full.png' alt=''></Image>
+                <Line src='https://img.icons8.com/ios/50/9CA3AF/vertical-line.png' alt=''></Line>
+                <Image src='https://img.icons8.com/ios-filled/50/9CA3AF/filled-circle.png'  alt=''></Image>
             </ImageColumn>
             <FieldColumn>
                 <LocationForm autoComplete='off' action='' method='get'>

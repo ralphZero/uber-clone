@@ -30,7 +30,8 @@ export default function Home() {
         router.push('/login');
       }
     });
-  }, [])
+  }, [router])
+
   useEffect(() => {
     if (map.current) return; // initialize map only once
       map.current = new mapboxgl.Map({

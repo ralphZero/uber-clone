@@ -72,7 +72,7 @@ const Ride = () => {
         return (
             <Card style={style} key={index} onClick={onSelect}>
                 <CardContent>
-                    <Image src={car.imgUrl}></Image>
+                    <Image src={car.imgUrl} alt='car'></Image>
                     <Title>{car.service}</Title>
                     <Price>{'$'+ (rideDuration * car.multiplier).toFixed(2)}</Price>
                 </CardContent>
